@@ -1,5 +1,5 @@
 /* =========================================================
-   SAKA GURU — Modul Generative AI "Ki Among"
+   SAKA GURU — Modul Generative AI "Ning Sula"
    - Mode Online : Google Gemini API (kunci API milik pengguna, disimpan di browser)
    - Mode Offline: bank kasus + umpan balik berbasis rubrik & kata kunci
    ========================================================= */
@@ -8,8 +8,8 @@
   const DEFAULT_MODEL = "gemini-2.5-flash";
   const CADANGAN = ["gemini-flash-latest", "gemini-3.5-flash", "gemini-2.5-flash", "gemini-2.0-flash"];
 
-  const PERSONA = `Anda adalah "Ki Among", mentor AI di aplikasi SAKA GURU untuk mata kuliah Kepemimpinan Pendidikan (Prodi Pendidikan Agama Islam, Universitas Sunan Gresik), Minggu 10: Kepemimpinan dan Kerja Sama Tim.
-Nama Anda diambil dari "sistem among" Ki Hajar Dewantara: membimbing dengan asah, asih, asuh.
+  const PERSONA = `Anda adalah "Ning Sula", mentor AI di aplikasi SAKA GURU untuk mata kuliah Kepemimpinan Pendidikan (Prodi Pendidikan Agama Islam, Universitas Sunan Gresik), Minggu 10: Kepemimpinan dan Kerja Sama Tim.
+Anda seorang perempuan; "Ning" adalah sapaan hormat dan akrab bagi perempuan muda di lingkungan pesantren Jawa Timur. Cara membimbing Anda mengikuti "sistem among" Ki Hajar Dewantara: asah, asih, asuh. Sapa mahasiswa dengan hangat seperti seorang kakak/ustadzah muda.
 Cakupan materi: (1) konsep tim & kerja sama, (2) pembentukan tim efektif (Tuckman, Hackman), (3) pembagian tugas & tanggung jawab (RACI, Belbin, amanah), (4) koordinasi (Mintzberg, Malone & Crowston), (5) kolaborasi (PLC/komunitas belajar, lesson study, KKG/MGMP), (6) motivasi (Self-Determination Theory, Herzberg, niat), (7) membangun kepercayaan (Mayer-Davis-Schoorman, Lencioni, Edmondson), (8) kepemimpinan kolaboratif (distributed leadership Spillane/Harris, trilogi Ki Hajar Dewantara, syura), (9) evaluasi kinerja tim (Hackman, After Action Review, PDCA, Rapor Pendidikan).
 Gaya: bahasa Indonesia yang hangat dan santun, sesekali sapaan Jawa ringan ("Monggo", "Nggih"). Gunakan contoh nyata di SD/MI, SMP/MTs, SMA/MA/SMK, dan pesantren, terutama konteks Gresik/Jawa Timur. Kaitkan dengan nilai Islam (amanah, syura, ta'awun, ikhlas, muhasabah) dan kearifan lokal (gotong royong, sambatan, rewang, gamelan, damar kurung Gresik, ajining diri saka lathi, mulat sarira) bila relevan.
 Prinsip pedagogis: jangan langsung memberi semua jawaban; dorong analisis dan sintesis dengan pertanyaan pemantik. Jawaban ringkas (maks. ±200 kata) kecuali diminta. Sebut rujukan teori secara akurat (nama & tahun). Jika ragu terhadap suatu fakta, katakan terus terang. Jangan mengarang ayat atau hadis; kutip hanya yang sahih dan umum dikenal.`;
@@ -205,7 +205,7 @@ Format Markdown: tabel ringkas skor, lalu **Kekuatan** (2 poin), **Perlu ditingk
   }
   AI.toast = toast;
 
-  /* ---------------- Widget Chat Ki Among ---------------- */
+  /* ---------------- Widget Chat Ning Sula ---------------- */
   const MODE = {
     mentor: { label: "🧭 Mentor Sokratik", sys: PERSONA + "\nMode: MENTOR SOKRATIK. Bantu mahasiswa memahami dengan bertanya balik dan memberi contoh." },
     guruSenior: { label: "🎭 Roleplay: Pak Darto (guru senior skeptis)", sys: PERSONA + "\nMode: ROLEPLAY. Anda memerankan Pak Darto, guru senior 28 tahun mengajar di sebuah MTs di Gresik, skeptis terhadap program kerja tim baru ('dari dulu begini juga jalan'). Mahasiswa berperan sebagai kepala madrasah yang ingin mengajak Anda bergabung dalam tim. Tetap dalam karakter, bicara natural dengan sedikit logat Jawa Timur. Lunak HANYA jika mahasiswa menunjukkan empati, mendengar, memberi peran bermakna (otonomi), dan membangun kepercayaan. Setelah 6–8 giliran atau bila mahasiswa mengetik 'selesai', keluar dari karakter dan beri evaluasi singkat kepemimpinannya (skor 1–4: empati, kejelasan tujuan, pembagian peran, membangun kepercayaan)." },
@@ -216,13 +216,13 @@ Format Markdown: tabel ringkas skor, lalu **Kekuatan** (2 poin), **Perlu ditingk
   function pasangChat(opsi = {}) {
     if (document.querySelector(".chat")) return;
     const fab = document.createElement("button");
-    fab.className = "fab"; fab.setAttribute("aria-label", "Buka Ki Among");
-    fab.innerHTML = `<span class="av">🧔🏽</span><span>Tanya Ki Among</span>`;
+    fab.className = "fab"; fab.setAttribute("aria-label", "Buka Ning Sula");
+    fab.innerHTML = `<span class="av">🧕🏽</span><span>Tanya Ning Sula</span>`;
     const chat = document.createElement("div");
     chat.className = "chat"; chat.setAttribute("role", "dialog");
     chat.innerHTML = `
       <div class="chat-head">
-        <div class="atas"><div class="av">🧔🏽</div><div><b>Ki Among</b><small class="status-ai"></small></div>
+        <div class="atas"><div class="av">🧕🏽</div><div><b>Ning Sula</b><small class="status-ai"></small></div>
           <div class="ikon"><button data-a="suara" title="Suara">🔊</button><button data-a="setel" title="Pengaturan AI">⚙️</button><button data-a="tutup" title="Tutup">✕</button></div></div>
         <div class="chat-mode"><select aria-label="Mode percakapan">${Object.entries(MODE).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join("")}</select><button class="btn btn-kecil btn-putih" data-a="baru" style="padding:6px 10px">↺ Baru</button></div>
       </div>
@@ -254,7 +254,7 @@ Format Markdown: tabel ringkas skor, lalu **Kekuatan** (2 poin), **Perlu ditingk
       body.innerHTML = ""; riwayat = [];
       const m = sel.value;
       const salam = m === "mentor"
-        ? `Assalamu'alaikum, monggo pinarak. Saya **Ki Among**, teman belajar Anda untuk **Kepemimpinan & Kerja Sama Tim**.\n\nAnda bisa bertanya tentang 9 saka (topik), meminta contoh di sekolah, atau berlatih *roleplay* menghadapi rekan kerja yang sulit (pilih di menu atas).`
+        ? `Assalamu'alaikum, monggo pinarak. Saya **Ning Sula**, teman belajar Anda untuk **Kepemimpinan & Kerja Sama Tim**.\n\nAnda bisa bertanya tentang 9 saka (topik), meminta contoh di sekolah, atau berlatih *roleplay* menghadapi rekan kerja yang sulit (pilih di menu atas).`
         : `**${MODE[m].label.replace("🎭 Roleplay: ", "")}** siap diajak bicara. Anda berperan sebagai **kepala sekolah/ketua tim**. Mulailah membuka percakapan. Ketik **selesai** untuk meminta evaluasi.`;
       tambah("ai", salam);
       const s = m === "mentor" ? ["Apa beda tim dan kelompok?", "Jelaskan tahap Tuckman dengan contoh MI", "Buatkan RACI untuk peringatan Maulid", "Apa itu piramida Lencioni?"] : ["Assalamu'alaikum, Pak/Bu, boleh minta waktunya sebentar?", "selesai"];
@@ -285,7 +285,7 @@ Format Markdown: tabel ringkas skor, lalu **Kekuatan** (2 poin), **Perlu ditingk
       if (a === "kirim") kirim();
       if (a === "baru") sapa();
       if (a === "setel") bukaSetelan();
-      if (a === "suara") { Suara.set(!Suara.aktif()); if (!Suara.aktif()) Suara.diam(); status(); toast(Suara.aktif() ? "Suara Ki Among aktif" : "Suara dimatikan"); }
+      if (a === "suara") { Suara.set(!Suara.aktif()); if (!Suara.aktif()) Suara.diam(); status(); toast(Suara.aktif() ? "Suara Ning Sula aktif" : "Suara dimatikan"); }
       if (a === "mic") {
         const b = e.target.closest("button");
         if (rek) { rek.stop(); return; }
@@ -303,7 +303,7 @@ Format Markdown: tabel ringkas skor, lalu **Kekuatan** (2 poin), **Perlu ditingk
     const s = document.createElement("div"); s.className = "setel";
     s.innerHTML = `<div class="isi" role="dialog" aria-label="Pengaturan AI">
       <h3 style="margin:0 0 4px;color:#0c4a6e">⚙️ Pengaturan Generative AI</h3>
-      <p style="margin:0;color:#335f7d;font-size:14px">Ki Among memakai <b>Google Gemini</b>. Tanpa kunci API, aplikasi tetap berjalan dalam <b>mode offline</b> (bank kasus + umpan balik berbasis rubrik).</p>
+      <p style="margin:0;color:#335f7d;font-size:14px">Ning Sula memakai <b>Google Gemini</b>. Tanpa kunci API, aplikasi tetap berjalan dalam <b>mode offline</b> (bank kasus + umpan balik berbasis rubrik).</p>
       <label for="kunci">Kunci API Gemini</label>
       <input id="kunci" type="password" placeholder="AIza…" autocomplete="off">
       <label for="model">Model</label>

@@ -38,7 +38,7 @@
     $("#m-body").innerHTML = `
       <div class="tab" data-isi="pahami">
         <div class="kotak"><p style="margin-top:0">${T.ringkas}</p>
-          <div class="aksi"><button class="btn btn-kecil btn-putih" data-dengar>🔊 Dengarkan</button><a class="btn btn-kecil btn-primer" href="${t3[0]}">${t3[1]}</a><button class="btn btn-kecil btn-putih" data-tanya>🧔🏽 Tanya Ki Among</button></div></div>
+          <div class="aksi"><button class="btn btn-kecil btn-putih" data-dengar>🔊 Dengarkan</button><a class="btn btn-kecil btn-primer" href="${t3[0]}">${t3[1]}</a><button class="btn btn-kecil btn-putih" data-tanya>🧕🏽 Tanya Ning Sula</button></div></div>
         <div class="kotak"><h4>Poin kunci</h4><ul>${T.poin.map(x => `<li>${x}</li>`).join("")}</ul></div>
         <div class="kotak sumber"><h4>Rujukan</h4><ul>${T.sumber.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
       </div>
@@ -55,7 +55,7 @@
       <div class="tab" data-isi="analisis">
         <div class="kotak">
           <div class="baris" style="justify-content:space-between"><h4 style="margin:0">🧠 Laboratorium Kasus AI</h4><span class="chip ${AI.online() ? "on" : "off"}">${AI.online() ? "Gemini daring" : "Mode offline"}</span></div>
-          <p style="margin:8px 0 12px;color:#335f7d">Langkah: (1) bangkitkan kasus untuk jenjang pilihan, (2) tulis analisis & solusi Anda, (3) dapatkan umpan balik berbasis rubrik dari Ki Among.</p>
+          <p style="margin:8px 0 12px;color:#335f7d">Langkah: (1) bangkitkan kasus untuk jenjang pilihan, (2) tulis analisis & solusi Anda, (3) dapatkan umpan balik berbasis rubrik dari Ning Sula.</p>
           <div class="baris"><select class="input" id="jenjang" style="max-width:240px"><option>SD/MI</option><option>SMP/MTs</option><option>SMA/MA/SMK</option><option>Pondok Pesantren</option></select>
             <button class="btn btn-primer btn-kecil" id="b-kasus">✨ Bangkitkan Kasus</button>
             ${AI.online() ? "" : '<button class="btn btn-hantu btn-kecil" data-setel>⚙️ Aktifkan Gemini</button>'}</div>
@@ -80,7 +80,7 @@
     $("[data-tanya]").onclick = () => AI.kirimKeChat(`Jelaskan topik "${T.judul}" dengan contoh di madrasah, lalu beri saya satu pertanyaan pemantik.`);
     const st = $("[data-setel]"); if (st) st.onclick = () => AI.bukaSetelan();
     $("#b-kasus").onclick = async () => {
-      const o = $("#o-kasus"); o.classList.add("tampil"); o.innerHTML = '<span class="memuat"><i></i><i></i><i></i></span> Ki Among sedang menyusun kasus…';
+      const o = $("#o-kasus"); o.classList.add("tampil"); o.innerHTML = '<span class="memuat"><i></i><i></i><i></i></span> Ning Sula sedang menyusun kasus…';
       const r = await AI.kasus(T.id, $("#jenjang").value); o.innerHTML = AI.md(r.teks); o.dataset.kasus = r.teks;
     };
     $("#b-nilai").onclick = async () => {

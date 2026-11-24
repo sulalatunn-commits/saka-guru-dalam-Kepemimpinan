@@ -68,7 +68,7 @@
   }));
   pasangTekstur($("#label-among"), kanvas(512, 128, (g, w, h) => {
     g.fillStyle = "rgba(255,255,255,.92)"; g.beginPath(); g.roundRect ? g.roundRect(4, 4, w - 8, h - 8, 40) : g.rect(4, 4, w - 8, h - 8); g.fill();
-    g.fillStyle = "#0369a1"; g.textAlign = "center"; g.font = `800 44px ${FONT}`; g.fillText("Ki Among", w / 2, 56);
+    g.fillStyle = "#0369a1"; g.textAlign = "center"; g.font = `800 44px ${FONT}`; g.fillText("Ning Sula", w / 2, 56);
     g.fillStyle = "#335f7d"; g.font = `600 26px ${FONT}`; g.fillText("sentuh untuk bertanya", w / 2, 98);
   }));
 
@@ -171,7 +171,7 @@
       <ul style="font-size:13.5px;padding-left:18px;margin:6px 0">${t.poin.slice(0, 3).map(p => `<li>${p}</li>`).join("")}</ul>
       <div class="kotak dalil" style="padding:10px;margin:10px 0"><div class="arab" style="font-size:20px">${t.dalil.ar}</div><div class="sumber-dalil">${t.dalil.sumber}</div></div>
       <div class="kotak lokal" style="padding:10px;margin:0 0 10px;font-size:13.5px"><div>🏮 <b>${t.lokal.nama}:</b> ${t.lokal.isi}</div></div>
-      <div class="aksi"><button class="btn btn-kecil btn-putih" data-a="dengar">🔊 Dengarkan</button><button class="btn btn-kecil btn-primer" data-a="ai">🧔🏽 Ki Among, jelaskan!</button><a class="btn btn-kecil btn-putih" href="index.html#topik-${t.id}">📖 Modul & aktivitas</a></div>
+      <div class="aksi"><button class="btn btn-kecil btn-putih" data-a="dengar">🔊 Dengarkan</button><button class="btn btn-kecil btn-primer" data-a="ai">🧕🏽 Ning Sula, jelaskan!</button><a class="btn btn-kecil btn-putih" href="index.html#topik-${t.id}">📖 Modul & aktivitas</a></div>
       <div class="ai-out" id="vr-ai"></div>`;
     info.classList.add("tampil");
     if (diVR) tampilPapanVR(t);
@@ -198,13 +198,13 @@
       let y = bungkus(g, polos(t.ringkas).slice(0, 330) + "…", 36, 160, w - 72, 40);
       g.fillStyle = "#be123c"; g.font = `700 30px ${FONT}`; y = bungkus(g, "🏮 " + t.lokal.nama + ": " + t.lokal.isi.slice(0, 150) + "…", 36, y + 14, w - 72, 38);
       g.fillStyle = "#0c4a6e"; g.font = `40px "Amiri", serif`; g.textAlign = "right"; g.direction = "rtl"; bungkus(g, t.dalil.ar, w - 36, y + 34, w - 72, 56);
-      g.direction = "ltr"; g.textAlign = "left"; g.fillStyle = "#335f7d"; g.font = `600 24px ${FONT}`; g.fillText("Tatap Ki Among untuk mendengar penjelasan · tatap lampion lain untuk berpindah", 36, h - 26);
+      g.direction = "ltr"; g.textAlign = "left"; g.fillStyle = "#335f7d"; g.font = `600 24px ${FONT}`; g.fillText("Tatap Ning Sula untuk mendengar penjelasan · tatap lampion lain untuk berpindah", 36, h - 26);
     }));
     papan.setAttribute("visible", true);
     clearTimeout(papan._t); papan._t = setTimeout(() => papan.setAttribute("visible", false), 14000);
   }
 
-  /* ---------- Ki Among ---------- */
+  /* ---------- Ning Sula ---------- */
   $("#kiamong").addEventListener("click", async () => {
     if (diVR) {
       const t = aktif || D.topik[0];
@@ -228,7 +228,7 @@
     const lc = kam.components["look-controls"]; if (lc) { lc.pitchObject.rotation.x = 0; lc.yawObject.rotation.y = 0; }
   }
   const nav = $("#nav9");
-  nav.innerHTML = D.topik.map((t, i) => `<button data-id="${t.id}" data-i="${i}" title="${t.judul}">${t.id}</button>`).join("") + `<button data-among title="Ki Among">🧔🏽</button>`;
+  nav.innerHTML = D.topik.map((t, i) => `<button data-id="${t.id}" data-i="${i}" title="${t.judul}">${t.id}</button>`).join("") + `<button data-among title="Ning Sula">🧕🏽</button>`;
   nav.addEventListener("click", e => {
     const b = e.target.closest("button"); if (!b) return;
     if (b.hasAttribute("data-among")) { rig.setAttribute("animation__pos", "property: position; to: 0 0.5 3; dur: 1000; easing: easeInOutQuad"); rig.setAttribute("animation__rot", `property: rotation; to: 0 0 0; dur: 1000`); AI.bukaChat(); return; }

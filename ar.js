@@ -25,7 +25,7 @@
       <p style="margin:0 0 8px;font-size:14px">${b.isi}</p>
       ${b.solusi ? `<div class="kotak" style="padding:10px 12px;margin:8px 0;font-size:13.5px"><b>🧭 Peran pemimpin:</b> ${b.solusi}</div>` : ""}
       ${b.sekolah ? `<div class="kotak lokal" style="padding:10px 12px;margin:8px 0;font-size:13.5px"><div>🏫 <b>Di sekolah:</b> ${b.sekolah}</div></div>` : ""}
-      <div class="aksi"><button class="btn btn-kecil btn-putih" data-a="dengar">🔊 Dengarkan</button><button class="btn btn-kecil btn-primer" data-a="ai">🧔🏽 Analisis AI</button><a class="btn btn-kecil btn-putih" href="index.html#topik-${b.topik}">📖 Saka ${b.topik}</a></div>
+      <div class="aksi"><button class="btn btn-kecil btn-putih" data-a="dengar">🔊 Dengarkan</button><button class="btn btn-kecil btn-primer" data-a="ai">🧕🏽 Analisis AI</button><a class="btn btn-kecil btn-putih" href="index.html#topik-${b.topik}">📖 Saka ${b.topik}</a></div>
       <div class="ai-out" id="ar-ai"></div>`;
     info.classList.add("tampil");
   }
@@ -157,9 +157,9 @@
 
   /* ================= Ganti model & aksi ================= */
   const AKSI = {
-    lencioni: [["🔊 Ceritakan piramida", () => AI.suara.bicara("Piramida lima disfungsi tim menurut Patrick Lencioni. Dari dasar: ketiadaan kepercayaan, takut konflik, kurang komitmen, menghindari akuntabilitas, dan abai terhadap hasil. Ketuk setiap lapis untuk penjelasan.")], ["🧔🏽 Diagnosis tim saya", () => AI.kirimKeChat("Saya ingin mendiagnosis tim di sekolah saya memakai piramida lima disfungsi Lencioni. Ajukan 5 pertanyaan diagnostik satu per satu, lalu simpulkan lapis mana yang paling bermasalah dan saran tindakannya.")]],
-    tuckman: [["▶ Simulasikan", simulasiTuckman], ["🧔🏽 Tim saya di tahap mana?", () => AI.kirimKeChat("Bantu saya menentukan tim saya berada di tahap Tuckman yang mana. Tanyakan 3–4 gejala yang saya amati, lalu sarankan gaya kepemimpinan yang sesuai.")]],
-    gamelan: [["🎼 Mainkan bersama kendang", mainkanBersama], ["🙉 Mainkan tanpa kendang", tanpaKendang], ["🧔🏽 Peta peran tim saya", () => AI.kirimKeChat("Pakai analogi gamelan (kendang, saron, bonang, kenong, gong) untuk memetakan peran anggota tim di sekolah. Tanyakan dulu siapa saja anggota tim saya dan kekuatan mereka.")]]
+    lencioni: [["🔊 Ceritakan piramida", () => AI.suara.bicara("Piramida lima disfungsi tim menurut Patrick Lencioni. Dari dasar: ketiadaan kepercayaan, takut konflik, kurang komitmen, menghindari akuntabilitas, dan abai terhadap hasil. Ketuk setiap lapis untuk penjelasan.")], ["🧕🏽 Diagnosis tim saya", () => AI.kirimKeChat("Saya ingin mendiagnosis tim di sekolah saya memakai piramida lima disfungsi Lencioni. Ajukan 5 pertanyaan diagnostik satu per satu, lalu simpulkan lapis mana yang paling bermasalah dan saran tindakannya.")]],
+    tuckman: [["▶ Simulasikan", simulasiTuckman], ["🧕🏽 Tim saya di tahap mana?", () => AI.kirimKeChat("Bantu saya menentukan tim saya berada di tahap Tuckman yang mana. Tanyakan 3–4 gejala yang saya amati, lalu sarankan gaya kepemimpinan yang sesuai.")]],
+    gamelan: [["🎼 Mainkan bersama kendang", mainkanBersama], ["🙉 Mainkan tanpa kendang", tanpaKendang], ["🧕🏽 Peta peran tim saya", () => AI.kirimKeChat("Pakai analogi gamelan (kendang, saron, bonang, kenong, gong) untuk memetakan peran anggota tim di sekolah. Tanyakan dulu siapa saja anggota tim saya dan kekuatan mereka.")]]
   };
   function gantiModel(m) {
     modelAktif = m; info.classList.remove("tampil");

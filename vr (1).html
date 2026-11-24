@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Pendopo VR — SAKA GURU</title>
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="aframe.min.js"></script>
+</head>
+<body class="imersif">
+
+<div class="layar-mulai" id="mulai">
+  <div class="isi">
+    <div style="font-size:54px">🏮🥽🏮</div>
+    <h1>Pendopo Saka Guru</h1>
+    <p style="color:#335f7d;margin:0 0 14px">Anda akan memasuki pendopo joglo virtual berisi <b>9 lampion Damar Kurung</b> khas Gresik. Setiap lampion adalah satu "saka" materi kepemimpinan & kerja sama tim.</p>
+    <div class="kotak" style="text-align:left;font-size:14px;margin:0 0 14px">
+      <b>Cara menjelajah</b>
+      <ul style="margin:6px 0 0">
+        <li>💻 Laptop: seret mouse untuk melihat, tombol <b>W A S D</b> untuk berjalan, klik objek.</li>
+        <li>📱 Ponsel: gerakkan ponsel untuk melihat sekeliling, ketuk objek, tombol <b>1–9</b> untuk berpindah.</li>
+        <li>🥽 Kacamata VR/Cardboard: tekan ikon VR di kanan bawah; tatap objek ±1,5 detik untuk memilih.</li>
+        <li>🧕🏽 Sentuh <b>Ning Sula</b> di tengah pendopo untuk bertanya. 🥁 Sentuh gamelan untuk memainkannya.</li>
+      </ul>
+    </div>
+    <button class="btn btn-primer" id="masuk">Masuk Pendopo →</button>
+    <p style="margin:12px 0 0"><a href="index.html">← Kembali ke beranda</a></p>
+  </div>
+</div>
+
+<a-scene id="scene" renderer="antialias: true; colorManagement: true" cursor="rayOrigin: mouse" raycaster="objects: .klik; far: 40" loading-screen="dotsColor: #0284c7; backgroundColor: #e0f2fe" vr-mode-ui="enabled: true" device-orientation-permission-ui="enabled: true">
+  <a-entity id="langit" geometry="primitive: sphere; radius: 400" material="shader: flat; side: back"></a-entity>
+  <a-entity light="type: hemisphere; color: #e0f2fe; groundColor: #a7f3d0; intensity: 0.9"></a-entity>
+  <a-entity light="type: directional; color: #fff8e7; intensity: 0.9" position="6 12 8"></a-entity>
+  <a-entity light="type: ambient; color: #ffffff; intensity: 0.25"></a-entity>
+
+  <!-- Tanah -->
+  <a-circle radius="120" rotation="-90 0 0" color="#bbf7d0"></a-circle>
+  <a-circle radius="11" rotation="-90 0 0" position="0 0.01 0" color="#e2e8f0"></a-circle>
+  <a-plane width="3" height="30" rotation="-90 0 0" position="0 0.02 22" color="#e2e8f0"></a-plane>
+  <a-entity id="pohon"></a-entity>
+
+  <!-- Pendopo joglo -->
+  <a-entity id="pendopo">
+    <a-box width="14" height="0.5" depth="14" position="0 0.25 0" color="#d9c7a5"></a-box>
+    <a-box width="4" height="0.25" depth="1" position="0 0.125 7.5" color="#c9b48d"></a-box>
+    <a-entity id="tiang"></a-entity>
+    <!-- atap brunjung & penanggap -->
+    <a-cone radius-bottom="10.6" radius-top="3.3" height="2.4" segments-radial="4" rotation="0 45 0" position="0 5.0 0" color="#0c4a6e" material="side: double; roughness: 0.9"></a-cone>
+    <a-cone radius-bottom="3.5" radius-top="0.25" height="3.4" segments-radial="4" rotation="0 45 0" position="0 7.9 0" color="#075985" material="side: double; roughness: 0.9"></a-cone>
+    <!-- tumpang sari -->
+    <a-box width="4.4" height="0.18" depth="4.4" position="0 6.1 0" color="#7c4a1e"></a-box>
+    <a-box width="3.6" height="0.18" depth="3.6" position="0 6.28 0" color="#92582a"></a-box>
+    <a-box width="2.8" height="0.18" depth="2.8" position="0 6.46 0" color="#a16207"></a-box>
+    <!-- balok blandar keliling -->
+    <a-box width="13.2" height="0.25" depth="0.25" position="0 3.85 6.5" color="#7c4a1e"></a-box>
+    <a-box width="13.2" height="0.25" depth="0.25" position="0 3.85 -6.5" color="#7c4a1e"></a-box>
+    <a-box width="0.25" height="0.25" depth="13.2" position="6.5 3.85 0" color="#7c4a1e"></a-box>
+    <a-box width="0.25" height="0.25" depth="13.2" position="-6.5 3.85 0" color="#7c4a1e"></a-box>
+    <!-- papan nama -->
+    <a-plane id="papan-nama" width="5" height="0.9" position="0 3.3 6.7" material="shader: flat; side: double"></a-plane>
+    <!-- karpet tengah -->
+    <a-circle radius="1.5" rotation="-90 0 0" position="0 0.52 0" color="#0284c7"></a-circle>
+    <a-ring radius-inner="1.5" radius-outer="1.65" rotation="-90 0 0" position="0 0.525 0" color="#fde68a"></a-ring>
+  </a-entity>
+
+  <!-- Ning Sula -->
+  <a-entity id="kiamong" position="0 0.5 0" class="klik" animation="property: rotation; to: 0 360 0; dur: 60000; loop: true; easing: linear">
+    <a-cylinder radius="0.32" height="1.0" position="0 0.5 0" color="#0369a1" class="klik"></a-cylinder>
+    <a-cylinder radius="0.36" height="0.15" position="0 0.08 0" color="#0c4a6e" class="klik"></a-cylinder>
+    <a-box width="0.5" height="0.5" depth="0.04" position="0 0.62 0.3" color="#fde68a" class="klik"></a-box>
+    <a-sphere radius="0.22" position="0 1.22 0" color="#c68642" class="klik"></a-sphere>
+    <a-sphere radius="0.245" position="0 1.24 -0.05" color="#38bdf8" class="klik"></a-sphere>
+    <a-cone radius-bottom="0.4" radius-top="0.19" height="0.32" position="0 1.0 -0.01" color="#38bdf8" class="klik"></a-cone>
+    <a-sphere radius="0.025" position="-0.08 1.25 0.2" color="#0c0a09"></a-sphere>
+    <a-sphere radius="0.025" position="0.08 1.25 0.2" color="#0c0a09"></a-sphere>
+    <a-entity position="0 1.85 0" id="label-among" geometry="primitive: plane; width: 1.8; height: 0.45" material="shader: flat; transparent: true; side: double"></a-entity>
+  </a-entity>
+
+  <!-- Lampion Damar Kurung (dibangkitkan JS) -->
+  <a-entity id="lampion"></a-entity>
+
+  <!-- Gamelan -->
+  <a-entity id="gamelan" position="4.6 0.5 -4.6" rotation="0 -45 0"></a-entity>
+
+  <!-- Pengguna -->
+  <a-entity id="rig" position="0 0.5 12.5">
+    <a-entity id="kamera" camera position="0 1.6 0" look-controls="pointerLockEnabled: false; magicWindowTrackingEnabled: true" wasd-controls="acceleration: 22">
+      <a-entity id="papan-vr" position="0 0 -1.6" visible="false" geometry="primitive: plane; width: 1.6; height: 1.1" material="shader: flat; transparent: true; side: double"></a-entity>
+    </a-entity>
+    <a-entity laser-controls="hand: right" raycaster="objects: .klik; far: 30; lineColor: #38bdf8"></a-entity>
+  </a-entity>
+</a-scene>
+
+<div class="hud">
+  <div class="hud-top">
+    <a class="pill" href="index.html">← Beranda</a>
+    <span class="pill biru">🏮 Pendopo Saka Guru</span>
+    <button class="pill" id="b-amb">🎵 Gamelan latar: mati</button>
+    <a class="pill" href="ar.html">📱 Meja AR</a>
+  </div>
+  <div class="petunjuk">Ketuk lampion untuk membuka saka · Ketuk Ning Sula untuk bertanya · Ketuk gong/saron/kendang untuk berbunyi</div>
+  <div class="info-panel" id="info"></div>
+  <div class="hud-bawah" id="nav9"></div>
+</div>
+
+<script src="data.js"></script>
+<script src="ai.js"></script>
+<script src="gamelan.js"></script>
+<script src="vr.js"></script>
+</body>
+</html>
