@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAKA GURU — Ruang Imersif Kepemimpinan & Kerja Sama Tim</title>
+<meta name="description" content="Media pembelajaran interaktif AR/VR + Generative AI untuk Kepemimpinan Pendidikan, Minggu 10: Kepemimpinan dan Kerja Sama Tim. Prodi PAI Universitas Sunan Gresik.">
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap">
+    <a class="logo" href="#"><span class="logo-mark">🏮</span><span>SAKA GURU<small>Kepemimpinan & Kerja Sama Tim</small></span></a>
+    <button class="menu-btn" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="nav-links">
+      <a href="#imersif">Ruang Imersif</a>
+      <a href="#saka">9 Saka Materi</a>
+      <a href="#arisan">Arisan Diskusi</a>
+      <a href="#evaluasi">Evaluasi</a>
+      <a href="#" id="nav-ai">⚙️ AI</a>
+      <a class="cta" href="vr.html">Masuk Pendopo VR</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="awan" style="width:180px;height:46px;top:70px;animation-duration:55s"></div>
+  <div class="awan" style="width:120px;height:32px;top:180px;animation-duration:38s;animation-delay:-20s"></div>
+  <div class="awan" style="width:220px;height:54px;top:30px;animation-duration:70s;animation-delay:-45s"></div>
+  <div class="wrap">
+    <div>
+      <span class="badge">🎓 Kepemimpinan Pendidikan · Minggu 10 · Kelas B25</span>
+      <h1>Belajar memimpin tim<br>di <span class="grad">Pendopo Virtual</span><br>bersama AI</h1>
+      <p class="lead">SAKA GURU adalah media pembelajaran imersif berbasis <b>VR</b>, <b>AR</b>, dan <b>Generative AI</b>. Jelajahi pendopo joglo berisi 9 <i>Damar Kurung</i> Gresik, letakkan Piramida Lencioni & ansambel gamelan di meja Anda, lalu berlatih memimpin bersama <b>Ki Among</b>.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primer" href="vr.html">🥽 Masuk Pendopo VR</a>
+        <a class="btn btn-putih" href="ar.html">📱 Buka Meja AR</a>
+        <button class="btn btn-putih" id="hero-ai">🧔🏽 Ngobrol dengan Ki Among</button>
+      </div>
+      <div class="hero-meta"><span>📚 <b>9</b> topik</span><span>🏫 Contoh <b>SD/MI – SMA/MA/SMK</b></span><span>🕌 Nilai Islam & kearifan lokal</span></div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 400 400" width="100%" height="100%">
+        <defs>
+          <radialGradient id="mt" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#bae6fd"/></radialGradient>
+          <linearGradient id="atap" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0369a1"/><stop offset="1" stop-color="#0c4a6e"/></linearGradient>
+          <linearGradient id="dmr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff7ed"/><stop offset="1" stop-color="#fde68a"/></linearGradient>
+        </defs>
+        <circle cx="200" cy="200" r="190" fill="url(#mt)"/>
+        <circle cx="300" cy="96" r="30" fill="#fde68a" opacity=".9"/>
+        <!-- joglo -->
+        <polygon points="200,70 150,140 250,140" fill="url(#atap)"/>
+        <polygon points="150,140 60,210 340,210 250,140" fill="#0284c7"/>
+        <rect x="70" y="210" width="260" height="10" rx="3" fill="#0c4a6e"/>
+        <g fill="#7c4a1e">
+          <rect x="95" y="220" width="10" height="100"/><rect x="155" y="220" width="12" height="100"/><rect x="233" y="220" width="12" height="100"/><rect x="295" y="220" width="10" height="100"/>
+        </g>
+        <rect x="55" y="318" width="290" height="16" rx="4" fill="#e0f2fe" stroke="#7dd3fc"/>
+        <!-- damar kurung -->
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="3s" repeatCount="indefinite"/>
+          <line x1="200" y1="220" x2="200" y2="236" stroke="#0c4a6e" stroke-width="2"/>
+          <polygon points="178,240 200,232 222,240" fill="#e11d48"/>
+          <rect x="178" y="240" width="44" height="58" fill="url(#dmr)" stroke="#e11d48" stroke-width="2"/>
+          <rect x="183" y="246" width="34" height="20" fill="none" stroke="#0284c7"/>
+          <rect x="183" y="270" width="34" height="22" fill="none" stroke="#0284c7"/>
+          <circle cx="193" cy="256" r="4" fill="#0284c7"/><circle cx="207" cy="256" r="4" fill="#e11d48"/>
+          <path d="M187 288 q13 -14 26 0" stroke="#0c4a6e" fill="none"/>
+        </g>
+        <g opacity=".9"><circle cx="122" cy="292" r="10" fill="#fef3c7" stroke="#f59e0b"/><circle cx="278" cy="292" r="10" fill="#fef3c7" stroke="#f59e0b"/></g>
+        <text x="200" y="372" text-anchor="middle" font-family="Plus Jakarta Sans, sans-serif" font-weight="800" font-size="15" fill="#0369a1">Pendopo Saka Guru</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="seksi kawung" id="imersif">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Tiga ruang belajar</span><h2>Pilih pengalaman imersif Anda</h2><p class="sub">Tiga teknologi saling terhubung: VR untuk menjelajah konsep, AR untuk memanipulasi model teori di dunia nyata, dan GenAI untuk menganalisis kasus serta berlatih memimpin.</p></div></div>
+      <div class="mode-grid">
+        <a class="mode vr" href="vr.html"><span class="ikon-besar">🥽</span><h3>Pendopo VR</h3><p>Masuki pendopo joglo 3D. Sentuh 9 lampion Damar Kurung untuk membuka materi, mainkan gamelan, dan bertanya langsung kepada avatar Ki Among dengan suara.</p><div class="tag"><span>WebXR</span><span>Cardboard/Quest</span><span>360°</span></div></a>
+        <a class="mode ar" href="ar.html"><span class="ikon-besar">📱</span><h3>Meja AR</h3><p>Hadirkan Piramida Lencioni, Tangga Tuckman, dan Ansambel Gamelan Tim di atas meja melalui kamera ponsel. Rasakan beda irama <i>dengan</i> dan <i>tanpa</i> koordinasi.</p><div class="tag"><span>Kamera</span><span>WebXR AR</span><span>Audio</span></div></a>
+        <button class="mode ai" id="mode-ai" style="border:0;text-align:left;font:inherit"><span class="ikon-besar">🧔🏽</span><h3>Ki Among · GenAI</h3><p>Mentor AI Sokratik: membangkitkan studi kasus baru per jenjang, menilai analisis Anda dengan rubrik, dan memerankan guru/komite dalam simulasi kepemimpinan.</p><div class="tag"><span>Gemini</span><span>Roleplay</span><span>Umpan balik</span></div></button>
+      </div>
+      <h3 style="margin:36px 0 8px;color:#0c4a6e">Alur belajar di setiap saka</h3>
+      <div class="alur">
+        <div><b>👁️</b>Pahami<br><small>konsep & teori</small></div>
+        <div><b>🏮</b>Hayati<br><small>kearifan lokal & dalil</small></div>
+        <div><b>🏫</b>Lihat<br><small>contoh SD–SMA</small></div>
+        <div><b>🧩</b>Coba<br><small>aktivitas interaktif</small></div>
+        <div><b>🧠</b>Analisis<br><small>kasus AI + umpan balik</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seksi" id="saka">
+    <div class="wrap">
+      <div class="judul-seksi">
+        <div><span class="eyebrow">Minggu 10 · Sub-CPMK 10</span><h2>9 Saka Kepemimpinan & Kerja Sama Tim</h2><p class="sub" id="subcpmk"></p></div>
+        <div class="progres"><span>Progres</span><div class="bar"><i id="bar"></i></div><span id="persen">0/9</span></div>
+      </div>
+      <div class="topik-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <section class="seksi kawung" id="arisan">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Mode kelas</span><h2>Arisan Diskusi 🎲</h2><p class="sub">Seperti mengocok arisan: klik gelas untuk mengundi pertanyaan diskusi HOTS dari 9 saka beserta kelompok yang menjawab. Cocok untuk menghidupkan diskusi kelas B25.</p></div></div>
+      <div class="arisan">
+        <div>
+          <div class="gelas" id="gelas" role="button" tabindex="0" aria-label="Kocok arisan">
+            <svg viewBox="0 0 150 200" width="150" height="200">
+              <path d="M20 20 L130 20 L118 185 Q75 198 32 185 Z" fill="#e0f2fe" stroke="#0284c7" stroke-width="4"/>
+              <ellipse cx="75" cy="20" rx="55" ry="10" fill="#bae6fd" stroke="#0284c7" stroke-width="4"/>
+              <g fill="#fff" stroke="#0ea5e9" stroke-width="2"><rect x="45" y="120" width="22" height="14" rx="3" transform="rotate(-20 56 127)"/><rect x="78" y="135" width="22" height="14" rx="3" transform="rotate(15 89 142)"/><rect x="60" y="150" width="22" height="14" rx="3"/><rect x="88" y="110" width="22" height="14" rx="3" transform="rotate(30 99 117)"/><rect x="40" y="155" width="22" height="14" rx="3" transform="rotate(-8 51 162)"/></g>
+            </svg>
+          </div>
+          <div style="text-align:center;margin-top:8px"><button class="btn btn-primer btn-kecil" id="kocok">🎲 Kocok!</button></div>
+        </div>
+        <div>
+          <div class="baris" style="justify-content:space-between"><span class="chip" id="arisan-topik">Belum dikocok</span><span class="chip" id="arisan-kel">Kelompok —</span></div>
+          <p class="kertas" id="arisan-q">Klik gelas untuk mengundi pertanyaan…</p>
+          <div class="baris"><span class="timer" id="timer">05:00</span>
+            <button class="btn btn-putih btn-kecil" id="t-mulai">▶ Mulai diskusi</button>
+            <button class="btn btn-putih btn-kecil" id="t-reset">↺</button>
+            <label class="chip">Jumlah kelompok <input id="nkel" type="number" min="2" max="12" value="6" style="width:46px;border:0;background:transparent;font:inherit;font-weight:700;color:inherit"></label>
+            <button class="btn btn-hantu btn-kecil" id="arisan-ai">🧔🏽 Minta Ki Among memantik</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seksi" id="evaluasi">
+    <div class="wrap">
+      <div class="judul-seksi"><div><span class="eyebrow">Asesmen formatif</span><h2>Evaluasi Pemahaman</h2><p class="sub">12 soal pilihan ganda yang mencakup seluruh saka. Raih skor ≥ 75 untuk mendapatkan lencana <b>Pemimpin Kolaboratif</b>.</p></div></div>
+      <div class="kuis-wrap" id="kuis"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="kol">
+      <div><h4>🏮 SAKA GURU</h4><p style="margin:0">Media pembelajaran imersif AR/VR + Generative AI untuk MK <b>Kepemimpinan Pendidikan</b> (AI3I23), Prodi Pendidikan Agama Islam, Universitas Sunan Gresik. Tahun Akademik 2026/2027.</p></div>
+      <div><h4>Pengembang</h4><p style="margin:0">Sulalatun Nikma, S.Pd., M.Pd.<br>Dosen Pengampu</p></div>
+      <div><h4>Rujukan utama</h4><p style="margin:0;font-size:13.5px">Bush (2020) · Spillane (2006) · UNESCO GEM 2024/5 · Tuckman (1965) · Hackman (2002) · Lencioni (2002) · Deci & Ryan (2000)</p></div>
+    </div>
+    <p style="margin-top:24px"><small>Teknologi: A-Frame/WebXR · Web Audio API · Web Speech API · Google Gemini API. Dapat berjalan offline-first tanpa kunci API.</small></p>
+  </div>
+</footer>
+
+<!-- Modal modul -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="panel" role="dialog" aria-modal="true">
+    <div class="panel-head">
+      <button class="tutup" aria-label="Tutup" data-tutup>✕</button>
+      <span class="eyebrow" style="color:#e0f2fe" id="m-saka">Saka 1</span>
+      <h2 id="m-judul">Judul</h2>
+      <div class="tabs" id="m-tabs">
+        <button data-tab="pahami" class="aktif">👁️ Pahami</button>
+        <button data-tab="hayati">🏮 Hayati</button>
+        <button data-tab="contoh">🏫 Contoh</button>
+        <button data-tab="coba">🧩 Coba</button>
+        <button data-tab="analisis">🧠 Analisis AI</button>
+        <button data-tab="refleksi">📝 Refleksi</button>
+      </div>
+    </div>
+    <div class="panel-body" id="m-body"></div>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

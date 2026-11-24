@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Meja AR — SAKA GURU</title>
+<meta name="theme-color" content="#0ea5e9">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏮</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  body.imersif{background:radial-gradient(ellipse at 50% 30%,#f0f9ff 0%,#bae6fd 55%,#7dd3fc 100%)}
+  #cam{position:fixed;inset:0;width:100vw;height:100vh;object-fit:cover;z-index:0;display:none}
+  a-scene{position:fixed!important;inset:0;z-index:1}
+  .model-tab{position:absolute;top:60px;left:50%;transform:translateX(-50%);display:flex;gap:6px;background:rgba(255,255,255,.9);padding:5px;border-radius:999px;border:1px solid var(--langit-200);backdrop-filter:blur(8px);max-width:calc(100vw - 20px);overflow-x:auto}
+  .model-tab button{border:0;background:transparent;border-radius:999px;padding:8px 12px;font-weight:700;font-size:13.5px;color:var(--langit-800);white-space:nowrap}
+  .model-tab button.aktif{background:var(--langit-600);color:#fff}
+  .aksi-ar{position:absolute;bottom:16px;left:12px;right:110px;display:flex;gap:6px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .aksi-ar .pill{white-space:nowrap}
+  .aksi-ar .pill{border:1px solid var(--langit-200);cursor:pointer}
+  #info{top:auto;bottom:66px;left:12px;max-height:40vh}
+  @media (min-width:900px){#info{top:112px;bottom:auto;max-height:calc(100vh - 200px)}}
+  @media (max-width:640px){body.imersif .fab{top:auto;bottom:62px}}
+  .skala{position:absolute;right:14px;top:120px;display:flex;flex-direction:column;gap:6px}
+  .skala button{width:42px;height:42px;border-radius:14px;border:1px solid var(--langit-200);background:rgba(255,255,255,.92);font-size:18px;font-weight:800;color:var(--langit-700)}
+</style>
+<script src="assets/vendor/aframe.min.js"></script>
+</head>
+<body class="imersif">
+<video id="cam" playsinline muted autoplay></video>
+
+<div class="layar-mulai" id="mulai">
+  <div class="isi">
+    <div style="font-size:54px">📱🔺🥁</div>
+    <h1>Meja AR Saka Guru</h1>
+    <p style="color:#335f7d;margin:0 0 12px">Hadirkan model teori kerja sama tim di ruang nyata Anda: <b>Piramida Lencioni</b>, <b>Tangga Tuckman</b>, dan <b>Ansambel Gamelan Tim</b>. Sentuh bagian model untuk penjelasan, suara, dan analisis AI.</p>
+    <div style="display:grid;gap:8px">
+      <button class="btn btn-primer" id="b-xr" style="display:none">✨ AR Penuh (WebXR) — letakkan di lantai/meja</button>
+      <button class="btn btn-primer" id="b-cam">📷 AR Kamera — model melayang di ruangan Anda</button>
+      <button class="btn btn-putih" id="b-3d">🧊 Mode 3D tanpa kamera</button>
+    </div>
+    <p style="font-size:12.5px;color:#335f7d;margin:12px 0 0">Tips: gunakan Chrome di Android untuk AR Penuh. Pada AR Kamera, gerakkan ponsel perlahan — model tetap di tempatnya. Seret untuk memutar model.</p>
+    <p style="margin:8px 0 0"><a href="index.html">← Kembali ke beranda</a></p>
+  </div>
+</div>
+
+<a-scene id="scene" embedded renderer="antialias: true; alpha: true; colorManagement: true" background="transparent: true" vr-mode-ui="enabled: false"
+  cursor="rayOrigin: mouse" raycaster="objects: .klik; far: 20"
+  webxr="optionalFeatures: hit-test, dom-overlay; overlayElement: #hud" ar-hit-test="target: #akar; type: footprint"
+  device-orientation-permission-ui="enabled: true" loading-screen="enabled: false">
+  <a-entity light="type: hemisphere; color: #ffffff; groundColor: #bae6fd; intensity: 1"></a-entity>
+  <a-entity light="type: directional; intensity: 0.8" position="2 4 3"></a-entity>
+  <a-entity id="kamera" camera position="0 1.6 0" look-controls="mouseEnabled: false; touchEnabled: false; magicWindowTrackingEnabled: true"></a-entity>
+  <a-entity id="akar" position="0 1.05 -1.35">
+    <a-entity id="putar">
+      <a-entity id="m-lencioni"></a-entity>
+      <a-entity id="m-tuckman" visible="false"></a-entity>
+      <a-entity id="m-gamelan" visible="false"></a-entity>
+    </a-entity>
+    <a-ring radius-inner="0.5" radius-outer="0.56" rotation="-90 0 0" position="0 -0.01 0" color="#0ea5e9" material="shader: flat; opacity: .5; transparent: true"></a-ring>
+  </a-entity>
+</a-scene>
+
+<div class="hud" id="hud">
+  <div class="hud-top">
+    <a class="pill" href="index.html">← Beranda</a>
+    <span class="pill biru">📱 Meja AR</span>
+    <a class="pill" href="vr.html">🥽 Pendopo VR</a>
+  </div>
+  <div class="model-tab" id="tab">
+    <button data-m="lencioni" class="aktif">🔺 Piramida Lencioni</button>
+    <button data-m="tuckman">🪜 Tangga Tuckman</button>
+    <button data-m="gamelan">🥁 Gamelan Tim</button>
+  </div>
+  <div class="skala"><button id="zin" aria-label="Perbesar">＋</button><button id="zout" aria-label="Perkecil">－</button><button id="rst" aria-label="Atur ulang">⟲</button></div>
+  <div class="info-panel" id="info"></div>
+  <div class="aksi-ar" id="aksi"></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/ai.js"></script>
+<script src="assets/js/gamelan.js"></script>
+<script src="assets/js/ar.js"></script>
+</body>
+</html>
